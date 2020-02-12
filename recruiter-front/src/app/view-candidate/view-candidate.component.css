@@ -1,0 +1,3 @@
+input[type="text"]:disabled, input[type="date"]:disabled, input[type="email"]:disabled, textarea:disabled, select:disabled {
+    background: #fff;
+}

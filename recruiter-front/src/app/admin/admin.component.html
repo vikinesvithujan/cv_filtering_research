@@ -1,0 +1,111 @@
+<header>
+  <div class="navbar navbar-dark bg-dark shadow-sm">
+    <div class="container d-flex justify-content-between">
+      <a href="javascript:void(0);" class="navbar-brand d-flex align-items-center">
+        <strong>ADMIN CONSOLE</strong>
+      </a>
+      <button type="button" class="btn btn-sm btn-outline-light" style="width: 150px;"
+        (click)="logout()">logout</button>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+  <div class="row p-3" *ngIf="candidates">
+    <div class="col-8 align-self-center">
+      <span class="badge badge-primary p-2 mr-2" *ngFor="let skill of skills; let i = index">
+        {{ skill }}
+        <a class="ml-2 text-white" href="javascript:void(0);" (click)="deleteSkill(i)"><i
+            class="far fa-times-circle"></i></a>
+      </span>
+      <button type="button" class="btn btn-sm btn-outline-secondary" style="width: 150px;" (click)="getSkillModal()">ADD
+        SKILL</button>
+    </div>
+    <div class="col-4">
+      <div class="form-group">
+        <label class="font-weight-bold" for="position">Position</label>
+        <select class="form-control" [(ngModel)]="position">
+          <option [ngValue]="'all'">All</option>
+          <option *ngFor="let vacancy of vacancies" [ngValue]="vacancy">{{ vacancy }}</option>
+        </select>
+      </div>
+      <button type="button" class="btn btn-sm btn-outline-primary float-right" style="width: 150px;"
+        (click)="filterBySkill()">FILTER</button>
+    </div>
+  </div>
+</div>
+
+<div class="container h-100" *ngIf="!candidates">
+  <div class="row align-items-center h-100">
+    <div class="col-12 text-center">
+      <h2>loading....</h2>
+    </div>
+  </div>
+</div>
+
+<div class="container h-100" *ngIf="candidates && candidates.length === 0">
+  <div class="row align-items-center h-100">
+    <div class="col-12 text-center">
+      <h2>No more candidates....</h2>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <table class="table table-hover" *ngIf="candidates && candidates.length !== 0">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Position</th>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Phone</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let candidate of candidates">
+        <td scope="row">{{ candidate.candidateId }}</td>
+        <td scope="row">{{ candidate.position }}</td>
+        <td scope="row">{{ candidate.firstName }}</td>
+        <td scope="row">{{ candidate.lastName }}</td>
+        <td scope="row">{{ candidate.email }}</td>
+        <td scope="row">{{ candidate.phone }}</td>
+        <td scope="row">
+          <a target="_blank" class="btn btn-sm btn-outline-secondary" href="javascript:void(0);"
+            [routerLink]="'/admin/view-candidate/' + candidate.candidateId"><i class="far fa-eye"></i></a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Add Skill Modal -->
+<div class="modal fade" id="addSkillModal" tabindex="-1" role="dialog" aria-labelledby="addSkillTitle"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <form [formGroup]="addSkillForm" (ngSubmit)="addSkill(addSkillForm.value)">
+        <div class="modal-header">
+          <h5 class="modal-title" id="addSkillModalTitle">Add Skill</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label class="font-weight-bold" for="skill">Skill</label>
+            <input type="text" class="form-control" id="skill" formControlName="skill" required>
+            <small *ngIf="f.skill.invalid && (f.skill.dirty || f.skill.touched)" class="form-text text-danger">Skill is
+              required.</small>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary" [disabled]="!addSkillForm.valid">ADD</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- Add Skill Modal -->

@@ -1,0 +1,171 @@
+<header>
+    <div class="navbar navbar-dark bg-dark shadow-sm">
+        <div class="container d-flex justify-content-between">
+            <a href="javascript:void(0);" class="navbar-brand d-flex align-items-center">
+                <strong>ADMIN CONSOLE</strong>
+            </a>
+            <button type="button" class="btn btn-sm btn-outline-light" style="width: 150px;"
+                (click)="back()">Back</button>
+        </div>
+    </div>
+</header>
+
+<div class="container h-100" *ngIf="!serverResponse">
+    <div class="row align-items-center h-100">
+        <div class="col-12 text-center">
+            <h2>loading....</h2>
+        </div>
+    </div>
+</div>
+
+<div class="container p-3" *ngIf="serverResponse">
+    <form [formGroup]="infoForm">
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <div class="form-group">
+                    <label class="font-weight-bold" for="candidateId">Candidate ID</label>
+                    <input type="text" class="form-control" id="candidateId" formControlName="candidateId">
+                </div>
+                <div class="form-group">
+                    <label class="font-weight-bold" for="firstName">First Name</label>
+                    <input type="text" class="form-control" id="firstName" formControlName="firstName">
+                </div>
+                <div class="form-group">
+                    <label class="font-weight-bold" for="lastName">Last Name</label>
+                    <input type="text" class="form-control" id="lastName" formControlName="lastName">
+                </div>
+                <div class="form-group">
+                    <label class="font-weight-bold" for="gender">Gender</label>
+                    <select class="form-control" id="gender" formControlName="gender">
+                        <option>Male</option>
+                        <option>Female</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="font-weight-bold" for="dateOfBirth">Date of Birth</label>
+                    <input type="date" class="form-control" id="dateOfBirth" formControlName="dateOfBirth">
+                </div>
+                <div class="form-group">
+                    <label class="font-weight-bold" for="address">Address</label>
+                    <textarea class="form-control" id="address" rows="3" formControlName="address"></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="font-weight-bold" for="country">Country</label>
+                    <input type="text" class="form-control" id="country" formControlName="country">
+                </div>
+                <div class="form-group">
+                    <label class="font-weight-bold" for="email">Email</label>
+                    <input type="email" class="form-control" id="email" formControlName="email">
+                </div>
+                <div class="form-group">
+                    <label class="font-weight-bold" for="phone">Phone</label>
+                    <input type="text" class="form-control" id="phone" formControlName="phone">
+                </div>
+                <div class="form-group">
+                    <label class="font-weight-bold" for="nic">NIC</label>
+                    <input type="text" class="form-control" id="nic" formControlName="nic">
+                </div>
+                <div class="form-group">
+                    <label class="font-weight-bold" for="linkedIn">LinkedIn</label>
+                    <input type="text" class="form-control" id="linkedIn" formControlName="linkedIn">
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <!-- Technical Skills -->
+                <label class="font-weight-bold">Technical Skills</label>
+
+                <div class="card mb-2" *ngFor="let ts of technicalSkills; let i = index">
+                    <div class="card-body p-1">
+                        <p class="mb-0"><span class="font-weight-bold">Skill: </span>{{ ts.skill }}</p>
+                        <p class="mb-0"><span class="font-weight-bold">Rate: </span>{{ ts.rate }}</p>
+                    </div>
+                </div>
+
+                <p *ngIf="technicalSkills && technicalSkills.length === 0">No more technical skills...</p>
+                <!-- Technical Skills -->
+
+                <hr />
+
+                <!-- Soft Skills -->
+                <label class="font-weight-bold">Soft Skills</label>
+
+                <div class="card mb-2" *ngFor="let ss of softSkills; let i = index">
+                    <div class="card-body p-1">
+                        <p class="mb-0"><span class="font-weight-bold">Skill: </span>{{ ss.skill }}</p>
+                        <p class="mb-0"><span class="font-weight-bold">Rate: </span>{{ ss.rate }}</p>
+                    </div>
+                </div>
+
+                <p *ngIf="softSkills && softSkills.length === 0">No more soft skills...</p>
+                <!-- Soft Skills -->
+
+                <hr />
+
+                <!-- Experiences -->
+                <label class="font-weight-bold">Work Experiences</label>
+
+                <div class="card mb-2" *ngFor="let ex of experiences; let i = index">
+                    <div class="card-body p-1">
+                        <p class="mb-0"><span class="font-weight-bold">Company: </span>{{ ex.company }}</p>
+                        <p class="mb-0"><span class="font-weight-bold">Designation: </span>{{ ex.designation }}</p>
+                        <p class="mb-0"><span class="font-weight-bold">Duration: </span>{{ ex.duration }}</p>
+                    </div>
+                </div>
+
+                <p *ngIf="experiences && experiences.length === 0">No more experiences...</p>
+                <!-- Experiences -->
+
+                <hr />
+
+                <!-- Educational Qualification -->
+                <label class="font-weight-bold">Educational Qualification</label>
+
+                <div class="card mb-2" *ngFor="let eq of educationalQualifications; let i = index">
+                    <div class="card-body p-1">
+                        <p class="mb-0"><span class="font-weight-bold">Name: </span>{{ eq.name }}</p>
+                        <p class="mb-0"><span class="font-weight-bold">Institute: </span>{{ eq.institute }}</p>
+                        <p class="mb-0"><span class="font-weight-bold">Certificate: </span>{{ eq.certificate }}</p>
+                        <p class="mb-0"><span class="font-weight-bold">GPA: </span>{{ eq.gpa }}</p>
+                    </div>
+                </div>
+
+                <p *ngIf="educationalQualifications && educationalQualifications.length === 0">No more educational
+                    qualifications...</p>
+                <!-- Educational Qualification -->
+
+                <hr />
+
+                <!-- Professional Qualification -->
+                <label class="font-weight-bold">Professional Qualification</label>
+
+                <div class="card mb-2" *ngFor="let pq of professionalQualifications; let i = index">
+                    <div class="card-body p-1">
+                        <p class="mb-0"><span class="font-weight-bold">Name: </span>{{ pq.name }}</p>
+                        <p class="mb-0"><span class="font-weight-bold">Institute: </span>{{ pq.institute }}</p>
+                        <p class="mb-0"><span class="font-weight-bold">Level: </span>{{ pq.level }}</p>
+                    </div>
+                </div>
+
+                <p *ngIf="professionalQualifications && professionalQualifications.length === 0">No more professional
+                    qualifications...</p>
+                <!-- Professional Qualification -->
+
+                <hr />
+
+                <!-- Projects -->
+                <label class="font-weight-bold">Projects</label>
+
+                <div class="card mb-2" *ngFor="let p of projects; let i = index">
+                    <div class="card-body p-1">
+                        <p class="mb-0"><span class="font-weight-bold">Title: </span>{{ p.title }}</p>
+                        <p class="mb-0"><span class="font-weight-bold">Description: </span>{{ p.description }}</p>
+                        <p class="mb-0"><span class="font-weight-bold">Technologies: </span>{{ p.technologies }}</p>
+                    </div>
+                </div>
+
+                <p *ngIf="projects && projects.length === 0">No more projects...</p>
+                <!-- Projects -->
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,33 @@
+<section class="bg-light h-100">
+    <div class="container h-100">
+        <div class="row align-items-center justify-content-md-center h-100">
+            <div class="col-12 col-md-6">
+                <div class="card">
+                    <div class="card-body p-5">
+                        <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+                            <div class="form-group">
+                                <label class="font-weight-bold" for="username">Username</label>
+                                <input type="text" class="form-control" id="username" formControlName="username"
+                                    required>
+                                <small *ngIf="i.username.invalid && (i.username.dirty || i.username.touched)"
+                                    class="form-text text-danger">Username is required.</small>
+                            </div>
+                            <div class="form-group">
+                                <label class="font-weight-bold" for="password">Password</label>
+                                <input type="password" class="form-control" id="password" formControlName="password"
+                                    required>
+                                <small *ngIf="i.password.invalid && (i.password.dirty || i.password.touched)"
+                                    class="form-text text-danger">Password is required.</small>
+                            </div>
+                            <button type="submit" class="btn btn-sm btn-outline-primary mt-3" style="width: 150px;"
+                                [disabled]="!loginForm.valid">LOGIN</button>
+
+                            <small *ngIf="loginStatus" class="form-text text-danger mt-3">Login Failed. Try
+                                Again.</small>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,530 @@
+<app-navbar></app-navbar>
+<section class="service_part section_padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <Button class="btn btn-secondary" (click)="back()"><i class="fas fa-arrow-left"></i>
+                    BACK</Button>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-12">
+                <h3 style="font-size: 1.5rem;">Apply to <strong>{{ name }}</strong></h3>
+            </div>
+        </div>
+        <div class="mt-3">
+            <form [formGroup]="infoForm" (ngSubmit)="onSubmit()">
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <div class="form-group">
+                            <label class="font-weight-bold" for="firstName">First Name</label>
+                            <input type="text" class="form-control" id="firstName" formControlName="firstName" required>
+                            <small *ngIf="i.firstName.invalid && (i.firstName.dirty || i.firstName.touched)"
+                                class="form-text text-danger">First Name is required.</small>
+                        </div>
+                        <div class="form-group">
+                            <label class="font-weight-bold" for="lastName">Last Name</label>
+                            <input type="text" class="form-control" id="lastName" formControlName="lastName" required>
+                            <small *ngIf="i.lastName.invalid && (i.lastName.dirty || i.lastName.touched)"
+                                class="form-text text-danger">Last Name is required.</small>
+                        </div>
+                        <div class="form-group">
+                            <label class="font-weight-bold" for="gender">Gender</label>
+                            <select class="form-control" id="gender" formControlName="gender" required>
+                                <option>Male</option>
+                                <option>Female</option>
+                            </select>
+                            <small *ngIf="i.gender.invalid && (i.gender.dirty || i.gender.touched)"
+                                class="form-text text-danger">Gender is required.</small>
+                        </div>
+                        <div class="form-group">
+                            <label class="font-weight-bold" for="dateOfBirth">Date of Birth</label>
+                            <input type="date" class="form-control" id="dateOfBirth" formControlName="dateOfBirth"
+                                required>
+                            <small *ngIf="i.dateOfBirth.invalid && (i.dateOfBirth.dirty || i.dateOfBirth.touched)"
+                                class="form-text text-danger">Date Of Birth is required.</small>
+                        </div>
+                        <div class="form-group">
+                            <label class="font-weight-bold" for="address">Address</label>
+                            <textarea class="form-control" id="address" rows="3" formControlName="address"
+                                required></textarea>
+                            <small *ngIf="i.address.invalid && (i.address.dirty || i.address.touched)"
+                                class="form-text text-danger">Address is required.</small>
+                        </div>
+                        <div class="form-group">
+                            <label class="font-weight-bold" for="country">Country</label>
+                            <input type="text" class="form-control" id="country" formControlName="country" required>
+                            <small *ngIf="i.country.invalid && (i.country.dirty || i.country.touched)"
+                                class="form-text text-danger">Country is required.</small>
+                        </div>
+                        <div class="form-group">
+                            <label class="font-weight-bold" for="email">Email</label>
+                            <input type="email" class="form-control" id="email" formControlName="email" required>
+                            <small
+                                *ngIf="i.email.invalid && (i.email.dirty || i.email.touched) && i.email.errors.required"
+                                class="form-text text-danger">Email is required.</small>
+                            <small *ngIf="i.email.invalid && (i.email.dirty || i.email.touched) && i.email.errors.email"
+                                class="form-text text-danger">Email must be a valid email.</small>
+                        </div>
+                        <div class="form-group">
+                            <label class="font-weight-bold" for="phone">Phone</label>
+                            <input type="text" class="form-control" id="phone" formControlName="phone" required>
+                            <small *ngIf="i.phone.invalid && (i.phone.dirty || i.phone.touched)"
+                                class="form-text text-danger">Phone is required.</small>
+                        </div>
+                        <div class="form-group">
+                            <label class="font-weight-bold" for="nic">NIC</label>
+                            <input type="text" class="form-control" id="nic" formControlName="nic" required>
+                            <small *ngIf="i.nic.invalid && (i.nic.dirty || i.nic.touched)"
+                                class="form-text text-danger">NIC is
+                                required.</small>
+                        </div>
+                        <div class="form-group">
+                            <label class="font-weight-bold" for="linkedIn">LinkedIn</label>
+                            <input type="text" class="form-control" id="linkedIn" formControlName="linkedIn" required>
+                            <small *ngIf="i.linkedIn.invalid && (i.linkedIn.dirty || i.linkedIn.touched)"
+                                class="form-text text-danger">LinkedIn is required.</small>
+                        </div>
+                        <div class="form-group">
+                            <label class="font-weight-bold" for="cvFile">Upload CV</label>
+                            <input type="file" class="form-control-file" id="cvFile" accept="application/pdf, application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document">
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <!-- Technical Skills -->
+                        <label class="font-weight-bold">Technical Skills</label>
+
+                        <div class="card mb-2" *ngFor="let ts of technicalSkills; let i = index">
+                            <div class="card-body p-1">
+                                <p class="mb-0"><span class="font-weight-bold">Skill: </span>{{ ts.skill }}</p>
+                                <p class="mb-0"><span class="font-weight-bold">Rate: </span>{{ ts.rate }}</p>
+
+                                <button type="button" class="btn btn-sm btn-outline-secondary mt-2 float-right"
+                                    style="margin-top: -30px !important;" (click)="deleteTechnicalSkill(i)"><i
+                                        class="fas fa-trash"></i></button>
+                            </div>
+                        </div>
+
+                        <p *ngIf="technicalSkills && technicalSkills.length === 0">No more technical skills...</p>
+
+                        <button type="button" class="btn btn-sm btn-outline-secondary" style="width: 150px;"
+                            (click)="openTechnicalSkillModal()">ADD MORE</button>
+                        <!-- Technical Skills -->
+
+                        <hr />
+
+                        <!-- Soft Skills -->
+                        <label class="font-weight-bold">Soft Skills</label>
+
+                        <div class="card mb-2" *ngFor="let ss of softSkills; let i = index">
+                            <div class="card-body p-1">
+                                <p class="mb-0"><span class="font-weight-bold">Skill: </span>{{ ss.skill }}</p>
+                                <p class="mb-0"><span class="font-weight-bold">Rate: </span>{{ ss.rate }}</p>
+
+                                <button type="button" class="btn btn-sm btn-outline-secondary mt-2 float-right"
+                                    style="margin-top: -30px !important;" (click)="deleteSoftSkill(i)"><i
+                                        class="fas fa-trash"></i></button>
+                            </div>
+                        </div>
+
+                        <p *ngIf="softSkills && softSkills.length === 0">No more soft skills...</p>
+
+                        <button type="button" class="btn btn-sm btn-outline-secondary" style="width: 150px;"
+                            (click)="openSoftSkillModal()">ADD MORE</button>
+                        <!-- Soft Skills -->
+
+                        <hr />
+
+                        <!-- Experiences -->
+                        <label class="font-weight-bold">Work Experiences</label>
+
+                        <div class="card mb-2" *ngFor="let ex of experiences; let i = index">
+                            <div class="card-body p-1">
+                                <p class="mb-0"><span class="font-weight-bold">Company: </span>{{ ex.company }}</p>
+                                <p class="mb-0"><span class="font-weight-bold">Designation: </span>{{ ex.designation }}
+                                </p>
+                                <p class="mb-0"><span class="font-weight-bold">Duration: </span>{{ ex.duration }}</p>
+
+                                <button type="button" class="btn btn-sm btn-outline-secondary mt-2 float-right"
+                                    style="margin-top: -30px !important;" (click)="deleteExperience(i)"><i
+                                        class="fas fa-trash"></i></button>
+                            </div>
+                        </div>
+
+                        <p *ngIf="experiences && experiences.length === 0">No more experiences...</p>
+
+                        <button type="button" class="btn btn-sm btn-outline-secondary" style="width: 150px;"
+                            (click)="openExperienceModal()">ADD MORE</button>
+                        <!-- Experiences -->
+
+                        <hr />
+
+                        <!-- Educational Qualification -->
+                        <label class="font-weight-bold">Educational Qualification</label>
+
+                        <div class="card mb-2" *ngFor="let eq of educationalQualifications; let i = index">
+                            <div class="card-body p-1">
+                                <p class="mb-0"><span class="font-weight-bold">Name: </span>{{ eq.name }}</p>
+                                <p class="mb-0"><span class="font-weight-bold">Institute: </span>{{ eq.institute }}</p>
+                                <p class="mb-0"><span class="font-weight-bold">Certificate: </span>{{ eq.certificate }}
+                                </p>
+                                <p class="mb-0"><span class="font-weight-bold">GPA: </span>{{ eq.gpa }}</p>
+
+                                <button type="button" class="btn btn-sm btn-outline-secondary mt-2 float-right"
+                                    style="margin-top: -30px !important;" (click)="deleteEducationalQualification(i)"><i
+                                        class="fas fa-trash"></i></button>
+                            </div>
+                        </div>
+
+                        <p *ngIf="educationalQualifications && educationalQualifications.length === 0">No more
+                            educational
+                            qualifications...</p>
+
+                        <button type="button" class="btn btn-sm btn-outline-secondary" style="width: 150px;"
+                            (click)="openEducationalQualificationModal()">ADD MORE</button>
+                        <!-- Educational Qualification -->
+
+                        <hr />
+
+                        <!-- Professional Qualification -->
+                        <label class="font-weight-bold">Professional Qualification</label>
+
+                        <div class="card mb-2" *ngFor="let pq of professionalQualifications; let i = index">
+                            <div class="card-body p-1">
+                                <p class="mb-0"><span class="font-weight-bold">Name: </span>{{ pq.name }}</p>
+                                <p class="mb-0"><span class="font-weight-bold">Institute: </span>{{ pq.institute }}</p>
+                                <p class="mb-0"><span class="font-weight-bold">Level: </span>{{ pq.level }}</p>
+
+                                <button type="button" class="btn btn-sm btn-outline-secondary mt-2 float-right"
+                                    style="margin-top: -30px !important;"
+                                    (click)="deleteProfessionalQualification(i)"><i class="fas fa-trash"></i></button>
+                            </div>
+                        </div>
+
+                        <p *ngIf="professionalQualifications && professionalQualifications.length === 0">No more
+                            professional
+                            qualifications...</p>
+
+                        <button type="button" class="btn btn-sm btn-outline-secondary" style="width: 150px;"
+                            (click)="openProfessionalQualificationModal()">ADD MORE</button>
+                        <!-- Professional Qualification -->
+
+                        <hr />
+
+                        <!-- Projects -->
+                        <label class="font-weight-bold">Projects</label>
+
+                        <div class="card mb-2" *ngFor="let p of projects; let i = index">
+                            <div class="card-body p-1">
+                                <p class="mb-0"><span class="font-weight-bold">Title: </span>{{ p.title }}</p>
+                                <p class="mb-0"><span class="font-weight-bold">Description: </span>{{ p.description }}
+                                </p>
+                                <p class="mb-0"><span class="font-weight-bold">Technologies: </span>{{ p.technologies }}
+                                </p>
+
+                                <button type="button" class="btn btn-sm btn-outline-secondary mt-2 float-right"
+                                    style="margin-top: -30px !important;" (click)="deleteProject(i)"><i
+                                        class="fas fa-trash"></i></button>
+                            </div>
+                        </div>
+
+                        <p *ngIf="projects && projects.length === 0">No more projects...</p>
+
+                        <button type="button" class="btn btn-sm btn-outline-secondary" style="width: 150px;"
+                            (click)="openProjectModal()">ADD MORE</button>
+                        <!-- Projects -->
+                    </div>
+                </div>
+
+                <hr />
+
+                <div class="row mt-2">
+                    <div class="col-12 text-center">
+                        <button type="submit" [disabled]="!infoForm.valid" class="btn btn-primary ml-3 mr-3"
+                            style="width: 150px;">SUMBIT</button>
+                        <button type="button" class="btn btn-secondary ml-3 mr-3" style="width: 150px;"
+                            (click)="onReset()">RESET</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- Technical Skill Modal -->
+<div class="modal fade top-card" id="technicalSkillModal" tabindex="-1" role="dialog" aria-labelledby="technicalSkillModalTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <form [formGroup]="technicalSkillForm" (ngSubmit)="addTechnicalSkill(technicalSkillForm.value)">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="technicalSkillModalTitle">Technical Skill</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label class="font-weight-bold" for="skill">Skill</label>
+                        <input type="text" class="form-control" id="skill" formControlName="skill" required>
+                        <small *ngIf="ts.skill.invalid && (ts.skill.dirty || ts.skill.touched)"
+                            class="form-text text-danger">Skill is required.</small>
+                    </div>
+                    <div class="form-group">
+                        <label class="font-weight-bold" for="rate">Rate</label>
+                        <input type="number" class="form-control" id="rate" formControlName="rate" max="10" min="0"
+                            required>
+                        <small *ngIf="ts.rate.invalid && (ts.rate.dirty || ts.rate.touched)"
+                            class="form-text text-danger">Rate is required.</small>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary" [disabled]="!technicalSkillForm.valid">ADD</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- Technical Skill Modal -->
+
+<!-- Soft Skill Modal -->
+<div class="modal fade top-card" id="softSkillModal" tabindex="-1" role="dialog" aria-labelledby="softSkillModalTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <form [formGroup]="softSkillForm" (ngSubmit)="addSoftSkill(softSkillForm.value)">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="softSkillModalTitle">Soft Skill</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label class="font-weight-bold" for="skill">Skill</label>
+                        <input type="text" class="form-control" id="skill" formControlName="skill" required>
+                        <small *ngIf="ss.skill.invalid && (ss.skill.dirty || ss.skill.touched)"
+                            class="form-text text-danger">Skill is required.</small>
+                    </div>
+                    <div class="form-group">
+                        <label class="font-weight-bold" for="rate">Rate</label>
+                        <input type="number" class="form-control" id="rate" formControlName="rate" max="10" min="0"
+                            required>
+                        <small *ngIf="ss.rate.invalid && (ss.rate.dirty || ss.rate.touched)"
+                            class="form-text text-danger">Rate is required.</small>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary" [disabled]="!softSkillForm.valid">ADD</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- Soft Skill Modal -->
+
+<!-- Experience Modal -->
+<div class="modal fade top-card" id="experienceModal" tabindex="-1" role="dialog" aria-labelledby="experienceModalTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <form [formGroup]="experienceForm" (ngSubmit)="addExperience(experienceForm.value)">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="experienceModalTitle">Experience</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="form-group">
+                        <label class="font-weight-bold" for="company">Company</label>
+                        <input type="text" class="form-control" id="company" formControlName="company" required>
+                        <small *ngIf="ex.company.invalid && (ex.company.dirty || ex.company.touched)"
+                            class="form-text text-danger">Company is required.</small>
+                    </div>
+                    <div class="form-group">
+                        <label class="font-weight-bold" for="designation">Designation</label>
+                        <input type="text" class="form-control" id="designation" formControlName="designation" required>
+                        <small *ngIf="ex.designation.invalid && (ex.designation.dirty || ex.designation.touched)"
+                            class="form-text text-danger">Designation is required.</small>
+                    </div>
+                    <div class="form-group">
+                        <label class="font-weight-bold" for="duration">Duration</label>
+                        <input type="number" class="form-control" id="duration" formControlName="duration" required>
+                        <small *ngIf="ex.duration.invalid && (ex.duration.dirty || ex.duration.touched)"
+                            class="form-text text-danger">Duration is required.</small>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary" [disabled]="!experienceForm.valid">ADD</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- Experience Modal -->
+
+<!-- Educational Qualification Modal -->
+<div class="modal fade top-card" id="educationalQualificationModal" tabindex="-1" role="dialog"
+    aria-labelledby="educationalQualificationModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <form [formGroup]="educationalQualificationForm"
+                (ngSubmit)="addEducationalQualification(educationalQualificationForm.value)">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="educationalQualificationModalTitle">Educational Qualification</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label class="font-weight-bold" for="name">Name</label>
+                        <input type="text" class="form-control" id="name" formControlName="name" required>
+                        <small *ngIf="eq.name.invalid && (eq.name.dirty || eq.name.touched)"
+                            class="form-text text-danger">Name is required.</small>
+                    </div>
+                    <div class="form-group">
+                        <label class="font-weight-bold" for="institute">Institute</label>
+                        <input type="text" class="form-control" id="institute" formControlName="institute" required>
+                        <small *ngIf="eq.institute.invalid && (eq.institute.dirty || eq.institute.touched)"
+                            class="form-text text-danger">Institute is required.</small>
+                    </div>
+                    <div class="form-group">
+                        <label class="font-weight-bold" for="certificate">Certificate</label>
+                        <input type="text" class="form-control" id="certificate" formControlName="certificate" required>
+                        <small *ngIf="eq.certificate.invalid && (eq.certificate.dirty || eq.certificate.touched)"
+                            class="form-text text-danger">Certificate is required.</small>
+                    </div>
+                    <div class="form-group">
+                        <label class="font-weight-bold" for="gpa">GPA</label>
+                        <input type="text" class="form-control" id="gpa" formControlName="gpa" required>
+                        <small *ngIf="eq.gpa.invalid && (eq.gpa.dirty || eq.gpa.touched)"
+                            class="form-text text-danger">GPA is required.</small>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary"
+                        [disabled]="!educationalQualificationForm.valid">ADD</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- Educational Qualification Modal -->
+
+<!-- Professional Qualification Modal -->
+<div class="modal fade top-card" id="professionalQualificationModal" tabindex="-1" role="dialog"
+    aria-labelledby="professionalQualificationModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <form [formGroup]="professionalQualificationForm"
+                (ngSubmit)="addProfessionalQualification(professionalQualificationForm.value)">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="professionalQualificationModalTitle">Professional Qualification</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label class="font-weight-bold" for="name">Name</label>
+                        <input type="text" class="form-control" id="name" formControlName="name" required>
+                        <small *ngIf="pq.name.invalid && (pq.name.dirty || pq.name.touched)"
+                            class="form-text text-danger">Name is required.</small>
+                    </div>
+                    <div class="form-group">
+                        <label class="font-weight-bold" for="institute">Institute</label>
+                        <input type="text" class="form-control" id="institute" formControlName="institute" required>
+                        <small *ngIf="pq.institute.invalid && (pq.institute.dirty || pq.institute.touched)"
+                            class="form-text text-danger">Institute is required.</small>
+                    </div>
+                    <div class="form-group">
+                        <label class="font-weight-bold" for="level">Level</label>
+                        <input type="text" class="form-control" id="level" formControlName="level" required>
+                        <small *ngIf="pq.level.invalid && (pq.level.dirty || pq.level.touched)"
+                            class="form-text text-danger">Level is required.</small>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary"
+                        [disabled]="!professionalQualificationForm.valid">ADD</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- Professional Qualification Modal -->
+
+<!-- Project Modal -->
+<div class="modal fade top-card" id="projectModal" tabindex="-1" role="dialog" aria-labelledby="projectModalTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <form [formGroup]="projectForm" (ngSubmit)="addProject(projectForm.value)">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="projectModalTitle">Project</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label class="font-weight-bold" for="title">Title</label>
+                        <input type="text" class="form-control" id="title" formControlName="title" required>
+                        <small *ngIf="p.title.invalid && (p.title.dirty || p.title.touched)"
+                            class="form-text text-danger">Title is required.</small>
+                    </div>
+                    <div class="form-group">
+                        <label class="font-weight-bold" for="description">Description</label>
+                        <input type="text" class="form-control" id="description" formControlName="description" required>
+                        <small *ngIf="p.description.invalid && (p.description.dirty || p.description.touched)"
+                            class="form-text text-danger">Description is required.</small>
+                    </div>
+                    <div class="form-group">
+                        <label class="font-weight-bold" for="technologies">Technologies</label>
+                        <input type="text" class="form-control" id="technologies" formControlName="technologies"
+                            required>
+                        <small *ngIf="p.technologies.invalid && (p.technologies.dirty || p.technologies.touched)"
+                            class="form-text text-danger">Technologies are required.</small>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary" [disabled]="!projectForm.valid">ADD</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- Project Modal -->
+
+<!-- Success Modal -->
+<div class="modal fade top-card" id="successModal" tabindex="-1" role="dialog" aria-labelledby="successModalTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-body text-center p-5">
+                <img height="200" src="assets/img/success-msg.png" />
+                <h2 class="mt-3">SUCCESS!</h2>
+                <h4>Thank you for your submission.</h4>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Success Modal -->
+
+<!-- Error Modal -->
+<div class="modal fade top-card" id="errorModal" tabindex="-1" role="dialog" aria-labelledby="errorModalTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-body text-center p-5">
+                <img height="200" src="assets/img/error-msg.png" />
+                <h2 class="mt-3">Error!</h2>
+                <h4>Something went wrong. Try Again.</h4>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Success Modal -->
