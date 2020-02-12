@@ -1,0 +1,734 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<rdf:RDF
+    xmlns:candidate="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+  <owl:Ontology rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology"/>
+  <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#SoftSkill">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#Skill"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#TechnicalSkill"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#Professional">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#Qualification"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#TechnicalSkill">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#Skill"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#Educational">
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#Qualification"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#Professional"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#Experience"/>
+  <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#Project"/>
+  <owl:Class rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#Candidate"/>
+  <owl:ObjectProperty rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#possess">
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#Candidate"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#Skill"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#has">
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#Candidate"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#Experience"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#done">
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#Candidate"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#Project"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#holds">
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#Candidate"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#Qualification"/>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#phone">
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#Candidate"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#address">
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#Candidate"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#eq_name">
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#Educational"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#eq_certificate">
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#Educational"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#dateOfBirth">
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#Candidate"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#e_designation">
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#Experience"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#ss_rate">
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#SoftSkill"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#ts_rate">
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#TechnicalSkill"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#eq_institute">
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#Educational"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#pq_name">
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#Professional"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#gender">
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#Candidate"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#linkedIn">
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#Candidate"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#lastName">
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#Candidate"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#e_duration">
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#Experience"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#e_company">
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#Experience"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#ss_skill">
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#SoftSkill"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#position">
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#Candidate"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#pq_level">
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#Professional"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#nic">
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#Candidate"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#p_technologies">
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#Project"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#p_description">
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#Project"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#email">
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#Candidate"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#ts_skill">
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#TechnicalSkill"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#firstName">
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#Candidate"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#eq_gpa">
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#Educational"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#country">
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#Candidate"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#pq_institute">
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#Professional"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#p_title">
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#Project"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <candidate:Candidate rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#C2493">
+    <candidate:dateOfBirth>2020-02-15</candidate:dateOfBirth>
+    <candidate:gender>Male</candidate:gender>
+    <candidate:done>
+      <candidate:Project rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#C2493-PR-1">
+        <candidate:p_title>dfvcx</candidate:p_title>
+        <candidate:p_description>vsfds</candidate:p_description>
+        <candidate:p_technologies>spring</candidate:p_technologies>
+      </candidate:Project>
+    </candidate:done>
+    <candidate:email>ja@gmail.com</candidate:email>
+    <candidate:phone>4</candidate:phone>
+    <candidate:possess>
+      <candidate:SoftSkill rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#C2493-SS-1">
+        <candidate:ss_skill>C</candidate:ss_skill>
+        <candidate:ss_rate>2</candidate:ss_rate>
+      </candidate:SoftSkill>
+    </candidate:possess>
+    <candidate:possess>
+      <candidate:TechnicalSkill rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#C2493-TS-1">
+        <candidate:ts_skill>JAVA</candidate:ts_skill>
+        <candidate:ts_rate>5</candidate:ts_rate>
+      </candidate:TechnicalSkill>
+    </candidate:possess>
+    <candidate:country>f</candidate:country>
+    <candidate:nic>56</candidate:nic>
+    <candidate:position>Software-Engineer</candidate:position>
+    <candidate:holds>
+      <candidate:Professional rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#C2493-PQ-1">
+        <candidate:pq_name>gdfgd</candidate:pq_name>
+        <candidate:pq_institute>gdfgd</candidate:pq_institute>
+        <candidate:pq_level>dfdsfd</candidate:pq_level>
+      </candidate:Professional>
+    </candidate:holds>
+    <candidate:firstName>j</candidate:firstName>
+    <candidate:holds>
+      <candidate:Educational rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#C2493-EQ-1">
+        <candidate:eq_name>h</candidate:eq_name>
+        <candidate:eq_institute>h</candidate:eq_institute>
+        <candidate:eq_certificate>g</candidate:eq_certificate>
+        <candidate:eq_gpa>2</candidate:eq_gpa>
+      </candidate:Educational>
+    </candidate:holds>
+    <candidate:linkedIn>dsvs</candidate:linkedIn>
+    <candidate:lastName>j</candidate:lastName>
+    <candidate:address>f</candidate:address>
+    <candidate:has>
+      <candidate:Experience rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#C2493-EX-1">
+        <candidate:e_company>f dsf sadafd</candidate:e_company>
+        <candidate:e_designation>se</candidate:e_designation>
+        <candidate:e_duration>3</candidate:e_duration>
+      </candidate:Experience>
+    </candidate:has>
+  </candidate:Candidate>
+  <candidate:Candidate rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#C5198">
+    <candidate:possess>
+      <candidate:SoftSkill rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#C5198-SS-1">
+        <candidate:ss_rate>7</candidate:ss_rate>
+        <candidate:ss_skill>COMMUNICATION</candidate:ss_skill>
+      </candidate:SoftSkill>
+    </candidate:possess>
+    <candidate:holds>
+      <candidate:Educational rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#C5198-EQ-1">
+        <candidate:eq_gpa>3.0</candidate:eq_gpa>
+        <candidate:eq_certificate>Bsc</candidate:eq_certificate>
+        <candidate:eq_institute>Uva wellassa university</candidate:eq_institute>
+        <candidate:eq_name>Bachelor of computer science &amp; Technology</candidate:eq_name>
+      </candidate:Educational>
+    </candidate:holds>
+    <candidate:position>Software-Engineer</candidate:position>
+    <candidate:done>
+      <candidate:Project rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#C5198-PR-1">
+        <candidate:p_technologies>java, html, css, php</candidate:p_technologies>
+        <candidate:p_description>university project</candidate:p_description>
+        <candidate:p_title>E channel System</candidate:p_title>
+      </candidate:Project>
+    </candidate:done>
+    <candidate:lastName>vivekantharajah</candidate:lastName>
+    <candidate:linkedIn>vjanarththanan</candidate:linkedIn>
+    <candidate:phone>0775521072</candidate:phone>
+    <candidate:possess>
+      <candidate:TechnicalSkill rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#C5198-TS-2">
+        <candidate:ts_rate>10</candidate:ts_rate>
+        <candidate:ts_skill>C</candidate:ts_skill>
+      </candidate:TechnicalSkill>
+    </candidate:possess>
+    <candidate:address>nallur road, jaffna</candidate:address>
+    <candidate:nic>935096386v</candidate:nic>
+    <candidate:possess>
+      <candidate:TechnicalSkill rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#C5198-TS-3">
+        <candidate:ts_rate>8</candidate:ts_rate>
+        <candidate:ts_skill>C++</candidate:ts_skill>
+      </candidate:TechnicalSkill>
+    </candidate:possess>
+    <candidate:firstName>Janarththanan</candidate:firstName>
+    <candidate:email>jana0706@gmail.com</candidate:email>
+    <candidate:dateOfBirth>1993-06-10</candidate:dateOfBirth>
+    <candidate:country>srilanka</candidate:country>
+    <candidate:possess>
+      <candidate:TechnicalSkill rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#C5198-TS-1">
+        <candidate:ts_rate>10</candidate:ts_rate>
+        <candidate:ts_skill>JAVA</candidate:ts_skill>
+      </candidate:TechnicalSkill>
+    </candidate:possess>
+    <candidate:gender>Male</candidate:gender>
+    <candidate:has>
+      <candidate:Experience rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#C5198-EX-1">
+        <candidate:e_duration>6</candidate:e_duration>
+        <candidate:e_designation>trainee software engineer</candidate:e_designation>
+        <candidate:e_company>jadon software solutions</candidate:e_company>
+      </candidate:Experience>
+    </candidate:has>
+  </candidate:Candidate>
+  <candidate:Candidate rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#C8514">
+    <candidate:done>
+      <candidate:Project rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#C8514-PR-1">
+        <candidate:p_technologies>java, mysql, html, php, css, javascript</candidate:p_technologies>
+        <candidate:p_description>university project</candidate:p_description>
+        <candidate:p_title>Career path guidelines</candidate:p_title>
+      </candidate:Project>
+    </candidate:done>
+    <candidate:linkedIn>sathurjanv</candidate:linkedIn>
+    <candidate:lastName>vijayanathan</candidate:lastName>
+    <candidate:nic>942387847v</candidate:nic>
+    <candidate:firstName>sathurjan</candidate:firstName>
+    <candidate:gender>Male</candidate:gender>
+    <candidate:address>252, uthayanagar west, kilinochchi</candidate:address>
+    <candidate:holds>
+      <candidate:Educational rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#C8514-EQ-1">
+        <candidate:eq_gpa>2.6</candidate:eq_gpa>
+        <candidate:eq_certificate>Bsc</candidate:eq_certificate>
+        <candidate:eq_institute>uva wellassa university</candidate:eq_institute>
+        <candidate:eq_name>Bachelor of computer science</candidate:eq_name>
+      </candidate:Educational>
+    </candidate:holds>
+    <candidate:possess>
+      <candidate:SoftSkill rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#C8514-SS-2">
+        <candidate:ss_rate>5</candidate:ss_rate>
+        <candidate:ss_skill>TEAM WORK</candidate:ss_skill>
+      </candidate:SoftSkill>
+    </candidate:possess>
+    <candidate:country>srilanka</candidate:country>
+    <candidate:position>Software-Engineer</candidate:position>
+    <candidate:phone>0778668734</candidate:phone>
+    <candidate:email>sathun1994@gmail.com</candidate:email>
+    <candidate:possess>
+      <candidate:TechnicalSkill rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#C8514-TS-3">
+        <candidate:ts_rate>6</candidate:ts_rate>
+        <candidate:ts_skill>C</candidate:ts_skill>
+      </candidate:TechnicalSkill>
+    </candidate:possess>
+    <candidate:possess>
+      <candidate:TechnicalSkill rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#C8514-TS-1">
+        <candidate:ts_rate>7</candidate:ts_rate>
+        <candidate:ts_skill>JAVA</candidate:ts_skill>
+      </candidate:TechnicalSkill>
+    </candidate:possess>
+    <candidate:possess>
+      <candidate:SoftSkill rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#C8514-SS-1">
+        <candidate:ss_rate>7</candidate:ss_rate>
+        <candidate:ss_skill>COMMUNICATION</candidate:ss_skill>
+      </candidate:SoftSkill>
+    </candidate:possess>
+    <candidate:has>
+      <candidate:Experience rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#C8514-EX-1">
+        <candidate:e_duration>5</candidate:e_duration>
+        <candidate:e_designation>trainee software engineer</candidate:e_designation>
+        <candidate:e_company>sgic</candidate:e_company>
+      </candidate:Experience>
+    </candidate:has>
+    <candidate:possess>
+      <candidate:TechnicalSkill rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#C8514-TS-2">
+        <candidate:ts_rate>8</candidate:ts_rate>
+        <candidate:ts_skill>C</candidate:ts_skill>
+      </candidate:TechnicalSkill>
+    </candidate:possess>
+    <candidate:dateOfBirth>1994-09-20</candidate:dateOfBirth>
+  </candidate:Candidate>
+  <candidate:Candidate rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#C5161">
+    <candidate:linkedIn>dsvs</candidate:linkedIn>
+    <candidate:position>Software-Engineer</candidate:position>
+    <candidate:phone>4</candidate:phone>
+    <candidate:country>f</candidate:country>
+    <candidate:firstName>j</candidate:firstName>
+    <candidate:email>ja@gmail.com</candidate:email>
+    <candidate:nic>56</candidate:nic>
+    <candidate:dateOfBirth>2020-02-15</candidate:dateOfBirth>
+    <candidate:lastName>j</candidate:lastName>
+    <candidate:address>f</candidate:address>
+    <candidate:holds>
+      <candidate:Educational rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#C5161-EQ-1">
+        <candidate:eq_name>h</candidate:eq_name>
+        <candidate:eq_institute>h</candidate:eq_institute>
+        <candidate:eq_certificate>g</candidate:eq_certificate>
+        <candidate:eq_gpa>2</candidate:eq_gpa>
+      </candidate:Educational>
+    </candidate:holds>
+    <candidate:gender>Male</candidate:gender>
+    <candidate:holds>
+      <candidate:Professional rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#C5161-PQ-1">
+        <candidate:pq_name>gdfgd</candidate:pq_name>
+        <candidate:pq_institute>gdfgd</candidate:pq_institute>
+        <candidate:pq_level>dfdsfd</candidate:pq_level>
+      </candidate:Professional>
+    </candidate:holds>
+    <candidate:done>
+      <candidate:Project rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#C5161-PR-1">
+        <candidate:p_title>dfvcx</candidate:p_title>
+        <candidate:p_description>vsfds</candidate:p_description>
+        <candidate:p_technologies>spring</candidate:p_technologies>
+      </candidate:Project>
+    </candidate:done>
+    <candidate:has>
+      <candidate:Experience rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#C5161-EX-1">
+        <candidate:e_company>f dsf sadafd</candidate:e_company>
+        <candidate:e_designation>se</candidate:e_designation>
+        <candidate:e_duration>3</candidate:e_duration>
+      </candidate:Experience>
+    </candidate:has>
+    <candidate:possess>
+      <candidate:SoftSkill rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#C5161-SS-1">
+        <candidate:ss_skill>C</candidate:ss_skill>
+        <candidate:ss_rate>2</candidate:ss_rate>
+      </candidate:SoftSkill>
+    </candidate:possess>
+    <candidate:possess>
+      <candidate:TechnicalSkill rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#C5161-TS-1">
+        <candidate:ts_skill>JAVA</candidate:ts_skill>
+        <candidate:ts_rate>5</candidate:ts_rate>
+      </candidate:TechnicalSkill>
+    </candidate:possess>
+  </candidate:Candidate>
+  <candidate:Candidate rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#C1675">
+    <candidate:dateOfBirth>2020-02-15</candidate:dateOfBirth>
+    <candidate:phone>4</candidate:phone>
+    <candidate:nic>56</candidate:nic>
+    <candidate:holds>
+      <candidate:Educational rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#C1675-EQ-1">
+        <candidate:eq_name>h</candidate:eq_name>
+        <candidate:eq_institute>h</candidate:eq_institute>
+        <candidate:eq_certificate>g</candidate:eq_certificate>
+        <candidate:eq_gpa>2</candidate:eq_gpa>
+      </candidate:Educational>
+    </candidate:holds>
+    <candidate:linkedIn>dsvs</candidate:linkedIn>
+    <candidate:gender>Male</candidate:gender>
+    <candidate:possess>
+      <candidate:SoftSkill rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#C1675-SS-1">
+        <candidate:ss_skill>C</candidate:ss_skill>
+        <candidate:ss_rate>2</candidate:ss_rate>
+      </candidate:SoftSkill>
+    </candidate:possess>
+    <candidate:position>Software-Engineer</candidate:position>
+    <candidate:firstName>j</candidate:firstName>
+    <candidate:email>ja@gmail.com</candidate:email>
+    <candidate:holds>
+      <candidate:Professional rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#C1675-PQ-1">
+        <candidate:pq_name>gdfgd</candidate:pq_name>
+        <candidate:pq_institute>gdfgd</candidate:pq_institute>
+        <candidate:pq_level>dfdsfd</candidate:pq_level>
+      </candidate:Professional>
+    </candidate:holds>
+    <candidate:done>
+      <candidate:Project rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#C1675-PR-1">
+        <candidate:p_title>dfvcx</candidate:p_title>
+        <candidate:p_description>vsfds</candidate:p_description>
+        <candidate:p_technologies>spring</candidate:p_technologies>
+      </candidate:Project>
+    </candidate:done>
+    <candidate:country>f</candidate:country>
+    <candidate:has>
+      <candidate:Experience rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#C1675-EX-1">
+        <candidate:e_company>f dsf sadafd</candidate:e_company>
+        <candidate:e_designation>se</candidate:e_designation>
+        <candidate:e_duration>3</candidate:e_duration>
+      </candidate:Experience>
+    </candidate:has>
+    <candidate:address>f</candidate:address>
+    <candidate:lastName>j</candidate:lastName>
+    <candidate:possess>
+      <candidate:TechnicalSkill rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#C1675-TS-1">
+        <candidate:ts_skill>JAVA</candidate:ts_skill>
+        <candidate:ts_rate>5</candidate:ts_rate>
+      </candidate:TechnicalSkill>
+    </candidate:possess>
+  </candidate:Candidate>
+  <candidate:Candidate rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#C6625">
+    <candidate:nic>56</candidate:nic>
+    <candidate:lastName>j</candidate:lastName>
+    <candidate:gender>Male</candidate:gender>
+    <candidate:country>f</candidate:country>
+    <candidate:done>
+      <candidate:Project rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#C6625-PR-1">
+        <candidate:p_title>dfvcx</candidate:p_title>
+        <candidate:p_description>vsfds</candidate:p_description>
+        <candidate:p_technologies>spring</candidate:p_technologies>
+      </candidate:Project>
+    </candidate:done>
+    <candidate:has>
+      <candidate:Experience rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#C6625-EX-1">
+        <candidate:e_company>f dsf sadafd</candidate:e_company>
+        <candidate:e_designation>se</candidate:e_designation>
+        <candidate:e_duration>3</candidate:e_duration>
+      </candidate:Experience>
+    </candidate:has>
+    <candidate:holds>
+      <candidate:Professional rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#C6625-PQ-1">
+        <candidate:pq_name>gdfgd</candidate:pq_name>
+        <candidate:pq_institute>gdfgd</candidate:pq_institute>
+        <candidate:pq_level>dfdsfd</candidate:pq_level>
+      </candidate:Professional>
+    </candidate:holds>
+    <candidate:phone>4</candidate:phone>
+    <candidate:email>ja@gmail.com</candidate:email>
+    <candidate:holds>
+      <candidate:Educational rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#C6625-EQ-1">
+        <candidate:eq_name>h</candidate:eq_name>
+        <candidate:eq_institute>h</candidate:eq_institute>
+        <candidate:eq_certificate>g</candidate:eq_certificate>
+        <candidate:eq_gpa>2</candidate:eq_gpa>
+      </candidate:Educational>
+    </candidate:holds>
+    <candidate:possess>
+      <candidate:SoftSkill rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#C6625-SS-1">
+        <candidate:ss_skill>C</candidate:ss_skill>
+        <candidate:ss_rate>2</candidate:ss_rate>
+      </candidate:SoftSkill>
+    </candidate:possess>
+    <candidate:firstName>j</candidate:firstName>
+    <candidate:linkedIn>dsvs</candidate:linkedIn>
+    <candidate:possess>
+      <candidate:TechnicalSkill rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#C6625-TS-1">
+        <candidate:ts_skill>JAVA</candidate:ts_skill>
+        <candidate:ts_rate>5</candidate:ts_rate>
+      </candidate:TechnicalSkill>
+    </candidate:possess>
+    <candidate:address>f</candidate:address>
+    <candidate:position>Software-Engineer</candidate:position>
+    <candidate:dateOfBirth>2020-02-15</candidate:dateOfBirth>
+  </candidate:Candidate>
+  <candidate:Candidate rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#C4206">
+    <candidate:possess>
+      <candidate:SoftSkill rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#C4206-SS-2">
+        <candidate:ss_rate>7</candidate:ss_rate>
+        <candidate:ss_skill>TEAM WORK</candidate:ss_skill>
+      </candidate:SoftSkill>
+    </candidate:possess>
+    <candidate:email>mathushanth.sri@gmail.com</candidate:email>
+    <candidate:position>Software-Engineer</candidate:position>
+    <candidate:possess>
+      <candidate:SoftSkill rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#C4206-SS-1">
+        <candidate:ss_rate>6</candidate:ss_rate>
+        <candidate:ss_skill>COMMUNICATION</candidate:ss_skill>
+      </candidate:SoftSkill>
+    </candidate:possess>
+    <candidate:possess>
+      <candidate:TechnicalSkill rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#C4206-TS-2">
+        <candidate:ts_rate>6</candidate:ts_rate>
+        <candidate:ts_skill>C</candidate:ts_skill>
+      </candidate:TechnicalSkill>
+    </candidate:possess>
+    <candidate:lastName>srikandarajah</candidate:lastName>
+    <candidate:possess>
+      <candidate:TechnicalSkill rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#C4206-TS-5">
+        <candidate:ts_rate>4</candidate:ts_rate>
+        <candidate:ts_skill>SPRING BOOT</candidate:ts_skill>
+      </candidate:TechnicalSkill>
+    </candidate:possess>
+    <candidate:dateOfBirth>1995-01-19</candidate:dateOfBirth>
+    <candidate:linkedIn>Smathushanth</candidate:linkedIn>
+    <candidate:holds>
+      <candidate:Educational rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#C4206-EQ-1">
+        <candidate:eq_gpa>3.2</candidate:eq_gpa>
+        <candidate:eq_certificate>Bsc</candidate:eq_certificate>
+        <candidate:eq_institute>Uva wellassa university</candidate:eq_institute>
+        <candidate:eq_name>Bachelor of Computer science &amp; Technology</candidate:eq_name>
+      </candidate:Educational>
+    </candidate:holds>
+    <candidate:possess>
+      <candidate:TechnicalSkill rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#C4206-TS-1">
+        <candidate:ts_rate>6</candidate:ts_rate>
+        <candidate:ts_skill>JAVA</candidate:ts_skill>
+      </candidate:TechnicalSkill>
+    </candidate:possess>
+    <candidate:address>stanly road, jaffna</candidate:address>
+    <candidate:done>
+      <candidate:Project rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#C4206-PR-1">
+        <candidate:p_technologies>machine learning, python, java, data science</candidate:p_technologies>
+        <candidate:p_description>university research</candidate:p_description>
+        <candidate:p_title>Career path prediction</candidate:p_title>
+      </candidate:Project>
+    </candidate:done>
+    <candidate:nic>950193182v</candidate:nic>
+    <candidate:phone>0763232550</candidate:phone>
+    <candidate:possess>
+      <candidate:TechnicalSkill rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#C4206-TS-4">
+        <candidate:ts_rate>4</candidate:ts_rate>
+        <candidate:ts_skill>REACT.JS</candidate:ts_skill>
+      </candidate:TechnicalSkill>
+    </candidate:possess>
+    <candidate:has>
+      <candidate:Experience rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#C4206-EX-1">
+        <candidate:e_duration>5</candidate:e_duration>
+        <candidate:e_designation>trainee software engineer</candidate:e_designation>
+        <candidate:e_company>sgic</candidate:e_company>
+      </candidate:Experience>
+    </candidate:has>
+    <candidate:possess>
+      <candidate:SoftSkill rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#C4206-SS-3">
+        <candidate:ss_rate>4</candidate:ss_rate>
+        <candidate:ss_skill>TIME MANAGEMENT</candidate:ss_skill>
+      </candidate:SoftSkill>
+    </candidate:possess>
+    <candidate:firstName>mathusanth</candidate:firstName>
+    <candidate:gender>Male</candidate:gender>
+    <candidate:country>Sri Lanka</candidate:country>
+    <candidate:possess>
+      <candidate:TechnicalSkill rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#C4206-TS-3">
+        <candidate:ts_rate>5</candidate:ts_rate>
+        <candidate:ts_skill>C++</candidate:ts_skill>
+      </candidate:TechnicalSkill>
+    </candidate:possess>
+  </candidate:Candidate>
+  <candidate:Candidate rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#C7887">
+    <candidate:firstName>j</candidate:firstName>
+    <candidate:lastName>j</candidate:lastName>
+  </candidate:Candidate>
+  <candidate:Candidate rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#C8056">
+    <candidate:gender>Male</candidate:gender>
+    <candidate:holds>
+      <candidate:Educational rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#C8056-EQ-1">
+        <candidate:eq_gpa>2.1</candidate:eq_gpa>
+        <candidate:eq_certificate>biit</candidate:eq_certificate>
+        <candidate:eq_institute>uva wellassa university</candidate:eq_institute>
+        <candidate:eq_name>Industrial information technology</candidate:eq_name>
+      </candidate:Educational>
+    </candidate:holds>
+    <candidate:position>Software-Engineer</candidate:position>
+    <candidate:done>
+      <candidate:Project rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#C8056-PR-1">
+        <candidate:p_technologies>java, html, php, css</candidate:p_technologies>
+        <candidate:p_description>university project</candidate:p_description>
+        <candidate:p_title>iot based home security system</candidate:p_title>
+      </candidate:Project>
+    </candidate:done>
+    <candidate:lastName>vikineswaran</candidate:lastName>
+    <candidate:country>srilanka</candidate:country>
+    <candidate:possess>
+      <candidate:TechnicalSkill rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#C8056-TS-1">
+        <candidate:ts_rate>9</candidate:ts_rate>
+        <candidate:ts_skill>JAVA</candidate:ts_skill>
+      </candidate:TechnicalSkill>
+    </candidate:possess>
+    <candidate:phone>0766370500</candidate:phone>
+    <candidate:holds>
+      <candidate:Professional rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#C8056-PQ-1">
+        <candidate:pq_level>2</candidate:pq_level>
+        <candidate:pq_institute>mcs</candidate:pq_institute>
+        <candidate:pq_name>mcs</candidate:pq_name>
+      </candidate:Professional>
+    </candidate:holds>
+    <candidate:linkedIn>vikinesvithujan</candidate:linkedIn>
+    <candidate:has>
+      <candidate:Experience rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#C8056-EX-1">
+        <candidate:e_duration>6</candidate:e_duration>
+        <candidate:e_designation>trainee software engineer</candidate:e_designation>
+        <candidate:e_company>sgic</candidate:e_company>
+      </candidate:Experience>
+    </candidate:has>
+    <candidate:possess>
+      <candidate:TechnicalSkill rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#C8056-TS-2">
+        <candidate:ts_rate>7</candidate:ts_rate>
+        <candidate:ts_skill>C</candidate:ts_skill>
+      </candidate:TechnicalSkill>
+    </candidate:possess>
+    <candidate:address>puliyankoodal south, kayts, jaffna</candidate:address>
+    <candidate:dateOfBirth>1995-03-13</candidate:dateOfBirth>
+    <candidate:firstName>vithujan</candidate:firstName>
+    <candidate:possess>
+      <candidate:SoftSkill rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#C8056-SS-3">
+        <candidate:ss_rate>6</candidate:ss_rate>
+        <candidate:ss_skill>RISK TAKING</candidate:ss_skill>
+      </candidate:SoftSkill>
+    </candidate:possess>
+    <candidate:possess>
+      <candidate:SoftSkill rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#C8056-SS-1">
+        <candidate:ss_rate>8</candidate:ss_rate>
+        <candidate:ss_skill>COMMUNICATION</candidate:ss_skill>
+      </candidate:SoftSkill>
+    </candidate:possess>
+    <candidate:nic>950731192v</candidate:nic>
+    <candidate:email>vithujan13@gmail.com</candidate:email>
+    <candidate:possess>
+      <candidate:SoftSkill rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#C8056-SS-2">
+        <candidate:ss_rate>6</candidate:ss_rate>
+        <candidate:ss_skill>TEAM WORK</candidate:ss_skill>
+      </candidate:SoftSkill>
+    </candidate:possess>
+  </candidate:Candidate>
+  <candidate:Candidate rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#C0461">
+    <candidate:firstName>j</candidate:firstName>
+    <candidate:lastName>j</candidate:lastName>
+  </candidate:Candidate>
+  <candidate:Candidate rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#C6932">
+    <candidate:possess>
+      <candidate:SoftSkill rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#C6932-SS-1">
+        <candidate:ss_rate>6</candidate:ss_rate>
+        <candidate:ss_skill>COMMUNICATION</candidate:ss_skill>
+      </candidate:SoftSkill>
+    </candidate:possess>
+    <candidate:phone>071293540</candidate:phone>
+    <candidate:linkedIn>srivijojan</candidate:linkedIn>
+    <candidate:firstName>vinojan</candidate:firstName>
+    <candidate:possess>
+      <candidate:TechnicalSkill rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#C6932-TS-2">
+        <candidate:ts_rate>9</candidate:ts_rate>
+        <candidate:ts_skill>C</candidate:ts_skill>
+      </candidate:TechnicalSkill>
+    </candidate:possess>
+    <candidate:has>
+      <candidate:Experience rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#C6932-EX-1">
+        <candidate:e_duration>5</candidate:e_duration>
+        <candidate:e_designation>trainee software engineer</candidate:e_designation>
+        <candidate:e_company>sgic</candidate:e_company>
+      </candidate:Experience>
+    </candidate:has>
+    <candidate:done>
+      <candidate:Project rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#C6932-PR-1">
+        <candidate:p_technologies>java, html, css, mysql,php</candidate:p_technologies>
+        <candidate:p_description>university projects</candidate:p_description>
+        <candidate:p_title>Exam management system</candidate:p_title>
+      </candidate:Project>
+    </candidate:done>
+    <candidate:possess>
+      <candidate:SoftSkill rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#C6932-SS-2">
+        <candidate:ss_rate>7</candidate:ss_rate>
+        <candidate:ss_skill>RISK MANAGEMENT</candidate:ss_skill>
+      </candidate:SoftSkill>
+    </candidate:possess>
+    <candidate:possess>
+      <candidate:TechnicalSkill rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#C6932-TS-3">
+        <candidate:ts_rate>7</candidate:ts_rate>
+        <candidate:ts_skill>C#</candidate:ts_skill>
+      </candidate:TechnicalSkill>
+    </candidate:possess>
+    <candidate:gender>Male</candidate:gender>
+    <candidate:lastName>srithantharaja</candidate:lastName>
+    <candidate:possess>
+      <candidate:SoftSkill rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#C6932-SS-3">
+        <candidate:ss_rate>6</candidate:ss_rate>
+        <candidate:ss_skill>TEAM WORK</candidate:ss_skill>
+      </candidate:SoftSkill>
+    </candidate:possess>
+    <candidate:position>Software-Engineer</candidate:position>
+    <candidate:possess>
+      <candidate:TechnicalSkill rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#C6932-TS-1">
+        <candidate:ts_rate>8</candidate:ts_rate>
+        <candidate:ts_skill>JAVA</candidate:ts_skill>
+      </candidate:TechnicalSkill>
+    </candidate:possess>
+    <candidate:nic>950751294v</candidate:nic>
+    <candidate:dateOfBirth>1995-02-06</candidate:dateOfBirth>
+    <candidate:address>pesalai road, mannar</candidate:address>
+    <candidate:email>viratvinoj@gmail.com</candidate:email>
+    <candidate:country>srilanka</candidate:country>
+    <candidate:holds>
+      <candidate:Educational rdf:about="http://www.semanticweb.org/user/ontologies/2020/0/candidate-ontology#C6932-EQ-1">
+        <candidate:eq_gpa>2.4</candidate:eq_gpa>
+        <candidate:eq_certificate>BIIT</candidate:eq_certificate>
+        <candidate:eq_institute>uva wellassa university</candidate:eq_institute>
+        <candidate:eq_name>bachelor of industrial information technology</candidate:eq_name>
+      </candidate:Educational>
+    </candidate:holds>
+  </candidate:Candidate>
+</rdf:RDF>
